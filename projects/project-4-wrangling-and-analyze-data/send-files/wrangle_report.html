@@ -13117,12 +13117,52 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Data-Wrangling-Steps---WeRateDogs-Twitter-Project">Data Wrangling Steps - WeRateDogs Twitter Project<a class="anchor-link" href="#Data-Wrangling-Steps---WeRateDogs-Twitter-Project">&#182;</a></h1><p>For this project, the following data wrangling steps were made:</p>
-<p><strong>Gathering data</strong></p>
-<p>Programmatically and manually download of files needed for the project.</p>
-<p><strong>Assessing data</strong></p>
-<p>Programmatically and visual analysis to identify quality and tideness issues on the data.</p>
-<p><strong>Clean data</strong></p>
-<p>Programmatically and manually cleaning data for issues identified at the assessing data step.</p>
+<h3 id="Gathering-data"><strong>Gathering data</strong><a class="anchor-link" href="#Gathering-data">&#182;</a></h3><p>Programmatically and manually download of files needed for the project. This files were:</p>
+<ul>
+<li><p>The WeRateDogs Twitter archive</p>
+</li>
+<li><p>The tweet image predictions, i.e., what breed of dog (or other object, animal, etc.) is present in each tweet according to a neural network. This file (image_predictions.tsv) is hosted on Udacity's servers and should be downloaded programmatically using the Requests library and the following URL: <a href="https://d17h27t6h515a5.cloudfront.net/topher/2017/August/599fd2ad_image-predictions/image-predictions.tsv">https://d17h27t6h515a5.cloudfront.net/topher/2017/August/599fd2ad_image-predictions/image-predictions.tsv</a></p>
+</li>
+<li><p>Additional data would need to be gather through the twitter api, but as I couldn't get this access I decided to follow the alternative way provided by Udacity. This altertative is:</p>
+<ul>
+<li>Copy and paste api code in notebook to documentate</li>
+<li>Read the text file provided by Udacity</li>
+</ul>
+</li>
+</ul>
+<h3 id="Assessing-data"><strong>Assessing data</strong><a class="anchor-link" href="#Assessing-data">&#182;</a></h3><p>Programmatically and visual analysis to identify quality and tideness issues on the data. The issues identified were:</p>
+<p><strong>WeRateDogs Twitter archive</strong></p>
+<p>Quality issues:</p>
+<ul>
+<li>Columns names that do not express the data well</li>
+<li>The dog stages columns is not accurate</li>
+<li>There are no columns for dog stages snoot and blep (Missing data)</li>
+<li>Rating denominator less or greather then 10</li>
+<li>The source column is with html tag text</li>
+<li>The timestamp column as an object instead of a date</li>
+<li>We have retweets and in replies</li>
+</ul>
+<p>Tidiness issues</p>
+<ul>
+<li>All dog stage columns can become a single column</li>
+</ul>
+<p><strong>Tweet image predictions</strong></p>
+<p>Quality issues:</p>
+<ul>
+<li>The predicted name is without pattern: some with underline, others with dash and also tiny</li>
+<li>There are tweets where it was not possible to predict the breed of the dog in any of the images</li>
+<li>In some cases p1_conf is not a dog but p2_conf or p3_conf can be dog</li>
+</ul>
+<p><strong>Additional data from Twitter</strong></p>
+<p>Tidiness issues</p>
+<ul>
+<li>The id column is not in the same name pattern as the other dataframes</li>
+</ul>
+<p><strong>General tidiness issues</strong></p>
+<ul>
+<li>The data is segmented into 3 separate files although there is the same observational unit</li>
+</ul>
+<h3 id="Clean-data"><strong>Clean data</strong><a class="anchor-link" href="#Clean-data">&#182;</a></h3><p>Programmatically and manually cleaning data for issues identified at the assessing data step.</p>
 
 </div>
 </div>
